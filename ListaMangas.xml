@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<listaManga>
+    <listaMangas>
+        <autor>Kentaro Miura</autor>
+        <capitulos>0</capitulos>
+        <numPaginas>0</numPaginas>
+        <precio>0.0</precio>
+        <titulo>DURANKI</titulo>
+        <volumen>0</volumen>
+    </listaMangas>
+    <listaMangas>
+        <capitulos>0</capitulos>
+        <numPaginas>0</numPaginas>
+        <precio>0.0</precio>
+        <volumen>0</volumen>
+    </listaMangas>
+    <listaMangas>
+        <capitulos>0</capitulos>
+        <numPaginas>0</numPaginas>
+        <precio>0.0</precio>
+        <titulo>NOAH</titulo>
+        <volumen>0</volumen>
+    </listaMangas>
+</listaManga>
