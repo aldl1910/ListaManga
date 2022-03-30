@@ -9,7 +9,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 public class UtilXML {
-    public static void guardarDatosXML(Stage stage, ListaManga listaMangas){
+    public static void guardarDatosXML(Stage stage, Mangas listaMangas){
         JAXBContext contexto;
         try {
             FileChooser fileChooser = new FileChooser();
@@ -18,7 +18,7 @@ public class UtilXML {
             File fileListaManga = fileChooser.showSaveDialog(stage);
 
             //File ficheroAlmacenado = new File("ListaLibros.xml");
-            contexto = JAXBContext.newInstance(ListaManga.class);
+            contexto = JAXBContext.newInstance(Mangas.class);
             Marshaller marshaller = contexto.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
             marshaller.marshal(listaMangas, System.out);
@@ -29,20 +29,22 @@ public class UtilXML {
         }
     }
     
-    public static void cargarDatosXML(Stage stage, ListaManga listaMangas){
+    public static Mangas cargarDatosXML(Stage stage){
         try {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Importar XML");
-            File fileListaManga = fileChooser.showSaveDialog(stage);
+            File fileManga = fileChooser.showSaveDialog(stage);
             
-            JAXBContext context = JAXBContext.newInstance( ListaManga.class );
+            JAXBContext context = JAXBContext.newInstance( Mangas.class );
             Unmarshaller unmarshaller = context.createUnmarshaller();
-            listaMangas = (ListaManga)unmarshaller.unmarshal(fileListaManga);
             
+            Mangas mangas = (Mangas)unmarshaller.unmarshal(fileManga);
+            return mangas;
         } catch (JAXBException e) {
             // TODO Auto-generated catch block
             System.out.println("Se ha producido un error");
             e.printStackTrace();
+            return null;
         }
     }
 }

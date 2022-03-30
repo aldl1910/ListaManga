@@ -86,6 +86,8 @@ public class Manga {
         String r = "";
         r += "Titulo: " + titulo + "\n";
         r += "Autor: " + autor + "\n";
+        r += "Precio: " + precio + "\n";
+        r += "NumPaginas: " + numPaginas + "\n";
         return r;
     }
 }

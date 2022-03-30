@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javax.xml.bind.JAXBContext;
@@ -21,10 +22,12 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
 
-        root = new Pane();
+        HBox root = new HBox();
+        //root.setAlignment(Pos.center);
+        root.setSpacing(10);
         var scene = new Scene(root, 640, 480);
         stage.setScene(scene);
-        stage.show();
+        stage.show();  
 
         Manga manga1 = new Manga("Berserk", "Kentaro Miura");
         System.out.println(manga1.getTitulo());
@@ -34,21 +37,27 @@ public class App extends Application {
         manga3.setTitulo("XML en Java 2");
         manga3.setPrecio(25.10f);
         manga2.setPrecio(22.01f);
-        ListaManga listaMangas = new ListaManga();
-        listaMangas.getListaMangas().add(manga1);
-        listaMangas.getListaMangas().add(manga2);
-        listaMangas.getListaMangas().add(manga3);
+        
+        Mangas mangas = new Mangas();
+        mangas.getListaMangas().add(manga1);
+        mangas.getListaMangas().add(manga2);
+        mangas.getListaMangas().add(manga3);
         
         Button buttonSelecFile = new Button("Guardar XML");
         root.getChildren().add(buttonSelecFile);
         buttonSelecFile.setOnAction((t) -> {
-            UtilXML.guardarDatosXML(stage, listaMangas);
+            UtilXML.guardarDatosXML(stage, mangas);
         });
         
         Button buttonImportFile = new Button("Importar XML");
         root.getChildren().add(buttonImportFile);
         buttonImportFile.setOnAction((t) -> {
-            UtilXML.cargarDatosXML(stage, listaMangas);
+            Mangas mangasImport = UtilXML.cargarDatosXML(stage);
+            System.out.print("Número de libros importados: ");
+            System.out.println(mangasImport.getListaMangas().size());
+            System.out.println(mangasImport.getListaMangas().get(0));
+            System.out.println(mangasImport.getListaMangas().get(1));
+            System.out.println(mangasImport.getListaMangas().get(2));
         });
         
     }
