@@ -1,5 +1,9 @@
-es\antoniodominguez\listamanga\Manga.class
-es\antoniodominguez\listamanga\ListaManga.class
+es\antoniodominguez\listamanga\Contenido.class
 module-info.class
 es\antoniodominguez\listamanga\App.class
+es\antoniodominguez\listamanga\Mangas.class
 es\antoniodominguez\listamanga\UtilXML.class
+es\antoniodominguez\listamanga\Manga.class
+es\antoniodominguez\listamanga\PanelInferior.class
+es\antoniodominguez\listamanga\PanelSuperior.class
+es\antoniodominguez\listamanga\SelecFichero.class

@@ -1,6 +1,7 @@
 package es.antoniodominguez.listamanga;
 
 import java.io.File;
+import javafx.scene.control.Alert;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.xml.bind.JAXBContext;
@@ -14,10 +15,8 @@ public class UtilXML {
         try {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Guardar XML en");
-            //fileChooser.
             File fileListaManga = fileChooser.showSaveDialog(stage);
 
-            //File ficheroAlmacenado = new File("ListaLibros.xml");
             contexto = JAXBContext.newInstance(Mangas.class);
             Marshaller marshaller = contexto.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
@@ -26,6 +25,11 @@ public class UtilXML {
         } catch (JAXBException ex) {
             System.out.println("Se ha producido un error");
             ex.printStackTrace();
+            
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error en el archivo XML");
+            alert.setContentText("El formato del archivo XML no es correcto");
+            alert.showAndWait();
         }
     }
     
@@ -40,10 +44,15 @@ public class UtilXML {
             
             Mangas mangas = (Mangas)unmarshaller.unmarshal(fileManga);
             return mangas;
+            
         } catch (JAXBException e) {
             // TODO Auto-generated catch block
             System.out.println("Se ha producido un error");
             e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error en el archivo XML");
+            alert.setContentText("El formato del archivo XML no es correcto");
+            alert.showAndWait();
             return null;
         }
     }

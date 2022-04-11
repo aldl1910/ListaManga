@@ -19,9 +19,14 @@ public class Manga {
         this.titulo = titulo.toUpperCase();
     }
     
-    public Manga(String titulo, String autor){
+    public Manga(String titulo, String autor,int volumen, int numPaginas, int capitulos, float precio, String fechaPublicacion){
         this.titulo = titulo.toUpperCase();
         this.autor = autor;
+        this.volumen = volumen;
+        this.numPaginas = numPaginas;
+        this.capitulos = capitulos;
+        this.precio = precio;
+        this.fechaPublicacion = fechaPublicacion;
     }
     
 
@@ -45,7 +50,7 @@ public class Manga {
         return capitulos;
     }
     
-    public void setVolumen(int Volumen){
+    public void setVolumen(int volumen){
         this.volumen = volumen;
     }
     
@@ -86,8 +91,11 @@ public class Manga {
         String r = "";
         r += "Titulo: " + titulo + "\n";
         r += "Autor: " + autor + "\n";
-        r += "Precio: " + precio + "\n";
+        r += "Volumen: " + volumen + "\n";
         r += "NumPaginas: " + numPaginas + "\n";
+        r += "Capitulos: " + capitulos + "\n";
+        r += "Precio: " + precio + "\n";
+        r += "Fecha: " + fechaPublicacion + "\n";
         return r;
     }
 }
