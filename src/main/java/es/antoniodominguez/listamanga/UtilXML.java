@@ -10,6 +10,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 public class UtilXML {
+    // MÉTODO QUE GUARDA LOS DATOS XML
     public static void guardarDatosXML(Stage stage, Mangas listaMangas){
         JAXBContext contexto;
         try {
@@ -33,6 +34,7 @@ public class UtilXML {
         }
     }
     
+    // MÉTODO QUE CARGA LOS DATOS XML
     public static Mangas cargarDatosXML(Stage stage){
         try {
             FileChooser fileChooser = new FileChooser();

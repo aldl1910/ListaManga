@@ -5,8 +5,11 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 
 public class PanelInferior extends HBox{
+    
+    // BOTONES
     Button buttonAnterior = new Button("Anterior");
     Button buttonSiguiente = new Button("Siguiente");
+    
     Contenido contenido = App.contenido;
     static int mangaActual=0;
     
@@ -40,7 +43,7 @@ public class PanelInferior extends HBox{
         }
      
     }
-     
+    
     public void siguienteManga(Mangas mangas){
        
         mangaActual++;
